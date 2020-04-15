@@ -15,10 +15,23 @@ void permutating(int* A,int** B,int** C,int size,char* sorted_text);
 
 int main(){
 	
-	char text[200];
-	scanf("%s",text);
+	char T[200];
+	fstream file;
+	file.open("C:\\Users\\owNer\\Desktop\\inputf1.txt", ios::out | ios::in);
+	int x=0;
+	while(!file.eof()){
+		file.get(T[x]);
+		x++;
+	}
+	file.close();
 	int size;
-	size=strlen(text);
+	size=strlen(T);
+	size++;
+	size=size/2;
+	char text[100];
+	for(int i=0;i<size;i++){
+		text[i]=T[2*i];
+	}
 	char* sorted_text;
 	sorted_text=(char*)malloc(sizeof(char)*(size+1));
 	sorted_text=Sorting(text,size);
@@ -162,7 +175,7 @@ void permutating(int* A,int** B,int** C,int size,char* sorted_text){
 			}
 		
 			fstream file;
-			file.open("C:\\Users\\owNer\\Desktop\\Problem.txt", ios::out | ios::in);
+			file.open("C:\\Users\\owNer\\Desktop\\outputf1.txt", ios::out | ios::in);
 			for(int i=0;i<p;i++){
 				file<< D[i]<< endl;
 			}
